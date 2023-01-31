@@ -1,8 +1,10 @@
 package Library;
 
 import java.util.LinkedHashSet;
+import java.util.Scanner;
 
 public class Library {
+
     LinkedHashSet<Book> books = new LinkedHashSet<>();
     Library() {
         Book b1 = new Book("java", "dhaval", 4);
@@ -16,10 +18,56 @@ public class Library {
         Book b5 = new Book("java4", "dhaval4", 4);
     }
 
-         public void display(){
-            for (Book book : books) {
-                System.out.println(book);
+    public void display(){
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+
+    public void issueBook(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a book name");
+        String bi=sc.nextLine();
+
+        for (Book b: books){
+            String bc= b.b_name;
+            if (bc.equals(bi)){
+                System.out.println(bc);
+                System.out.println("book isuued");
+                b.quantity--;
+                return;
             }
+        }
+
+        System.out.println("book is not av");
+
+    }
+
+    public void search_by_book(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a book name");
+        String bi=sc.nextLine();
+        String bi1=bi.toLowerCase();
+        for (Book b:books){
+            if (b.b_name.equals(bi1)) {
+                System.out.println(b);
+                return;
+            }
+        }
+        System.out.println("not av");
+    }
+    public void search_by_author(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a author name");
+        String bi=sc.nextLine();
+        String bi1=bi.toLowerCase();
+        for (Book b:books){
+            if (b.author.equals(bi1)) {
+                System.out.println(b);
+                return;
+            }
+        }
+        System.out.println("not av");
     }
 }
 
