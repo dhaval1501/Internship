@@ -3,7 +3,9 @@ package Library;
 import java.util.ArrayList;
 
 public class User {
+
     String u_name,password;
+
     ArrayList<User> users=new ArrayList();
 
     User(String u_name,String password){
@@ -30,18 +32,15 @@ public class User {
                 u_name +" "+ password ;
     }
 
-    LibraryMS lms1=new LibraryMS();
-
-    public boolean check() {
+    public boolean check(String uname,String pass) {
         for (User user : users) {
-            String u=u_name;
-            String p=password;
-            if(u==lms1.uname & p==password ){
+            String u=user.u_name;
+            String p=user.password;
+            if(u.equals(uname) & p.equals(pass)) {
                 return true;
             }
         }
         return false;
     }
-
 
 }

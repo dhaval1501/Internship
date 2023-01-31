@@ -1,10 +1,12 @@
 package Library;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 public class Library {
 
+    ArrayList<String> uibl=new ArrayList<>();
     LinkedHashSet<Book> books = new LinkedHashSet<>();
     Library() {
         Book b1 = new Book("java", "dhaval", 4);
@@ -25,51 +27,103 @@ public class Library {
     }
 
     public void issueBook(){
+
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a book name");
         String bi=sc.nextLine();
 
         for (Book b: books){
+
             String bc= b.b_name;
-            if (bc.equals(bi)){
-                System.out.println(bc);
+
+            if (bc.equals(bi) & b.quantity>0){
                 System.out.println("book isuued");
                 b.quantity--;
+                String ib=bc;
+                uibl.add(ib);
+                System.out.println(b);
                 return;
             }
         }
 
-        System.out.println("book is not av");
+        System.out.println("Book is not available");
 
     }
 
+
     public void search_by_book(){
+
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a book name");
         String bi=sc.nextLine();
-        String bi1=bi.toLowerCase();
+        String bi1=bi.toLowerCase().replaceAll("\\s", "");;;
+
         for (Book b:books){
-            if (b.b_name.equals(bi1)) {
+
+            String sb=b.b_name.toLowerCase().trim();
+            if (sb.equals(bi1)) {
                 System.out.println(b);
                 return;
             }
+
         }
-        System.out.println("not av");
+
+        System.out.println("Book not available");
+
     }
+
+
     public void search_by_author(){
+
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a author name");
         String bi=sc.nextLine();
-        String bi1=bi.toLowerCase();
+        String bi1=bi.toLowerCase().replaceAll("\\s", "");;
+
         for (Book b:books){
-            if (b.author.equals(bi1)) {
+
+            String sa=b.author.toLowerCase().trim();
+
+            if (sa.equals(bi1)) {
                 System.out.println(b);
                 return;
             }
+
         }
-        System.out.println("not av");
+
+        System.out.println("not available");
+
     }
+
+
+    public void returnBook(){
+
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter book name");
+        String bi=sc.nextLine();
+        String bi1=bi.toLowerCase();
+
+        for (Book b:books) {
+
+            if (b.b_name.equals(bi1) & b.quantity<5) {
+                System.out.println("book returned");
+                b.quantity++;
+                String rb=b.b_name;
+                uibl.remove(rb);
+                System.out.println(b);
+                return;
+
+            }
+
+        }
+
+        System.out.println("Are u returning wrong book ");
+    }
+
+    public void uib(String uname){
+        System.out.println(uname +" issued book is " + uibl);
+    }
+
+
 }
-
-
 
