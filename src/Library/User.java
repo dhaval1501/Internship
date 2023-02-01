@@ -16,14 +16,16 @@ public class User {
     User (){
         User u1=new User("dhaval","dhaval123");
         users.add(u1);
-        User u2=new User("dhaval1","dhaval1123");
+        User u2=new User("fenil","fenil123");
         users.add(u2);
-        User u3=new User("dhaval2","dhaval2123");
+        User u3=new User("ridham","ridham123");
         users.add(u3);
-        User u4=new User("dhaval3","dhaval3123");
+        User u4=new User("anjali","anjali123");
         users.add(u4);
-        User u5=new User("dhaval4","dhaval4123");
+        User u5=new User("vatsal","vatsal123");
         users.add(u5);
+        User u6=new User("vinod","vinod123");
+        users.add(u6);
     }
 
     @Override
