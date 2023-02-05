@@ -1,4 +1,4 @@
-package Library;
+package Library.jvm;
 
 public class Book {
 

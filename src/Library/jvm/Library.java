@@ -1,4 +1,6 @@
-package Library;
+package Library.jvm;
+
+import Library.csv.User;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -11,15 +13,18 @@ public class Library {
 
     LocalDate ld=LocalDate.now();
     LocalTime lt=LocalTime.now();
+//    LocalDate id;
+//    String td;
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("HH:mm:ss");
     DateTimeFormatter fmd = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     String d=fmd.format(ld);
-
     String t= fmt.format(lt);
+
     LocalDate date = LocalDate.parse(d);
     LocalDate rd = date.plusDays(5);
+
     ArrayList<String> uibl=new ArrayList<>();
     LinkedHashSet<Book> books = new LinkedHashSet<>();
     Library() {
@@ -53,10 +58,12 @@ public class Library {
             String bc1= bc.toLowerCase().trim().replaceAll("\\s", "");
 
             if (bc1.equals(bi1) & b.quantity>0){
-                System.out.println("book isuued on "+ ld +" at "+ t);
-                System.out.println("your retune date is " + rd);
+                System.out.println("book issued on "+ ld +" at "+ t);
+                System.out.println("your return date is " + rd);
                 b.quantity--;
 //                String ib=bc;
+//                 td="2023-01-15";
+//                 id=LocalDate.parse(td);
                 uibl.add(bc);
                 System.out.println(b);
                 return;
@@ -132,13 +139,17 @@ public class Library {
                 uibl.remove(rb);
                 System.out.println(b);
 
+//                if(ld.isAfter(id)){
+//                    System.out.println("you returned book late you have to pay 500 penalty");
+//                }
+
                 return;
 
             }
 
         }
 
-        System.out.println("Are u returning wrong book ");
+        System.out.println("Are you returning wrong book ");
     }
 
     public void uib(String uname){

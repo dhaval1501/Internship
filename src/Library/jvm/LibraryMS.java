@@ -1,4 +1,4 @@
-package Library;
+package Library.jvm;
 
 import java.util.Scanner;
 //search by name
@@ -88,7 +88,7 @@ public class LibraryMS {
                     case 5:
 
                         i = input;
-                        System.out.println("thanks");
+                        System.out.println("Thanks");
                         break;
                 }
             }
@@ -98,7 +98,7 @@ public class LibraryMS {
 
         else  {
 
-            System.out.println("unauthorized user");
+            System.out.println("Unauthorized user");
         }
 
     }
