@@ -1,8 +1,8 @@
 package OOP.test;
 
 public class Node<E> {
-    E item;
-    Node next;
+    public E item;
+    public Node next;
 
     Node (E item){
         this.item=item;

@@ -2,7 +2,7 @@ package OOP.test;
 
 public class LinkedL<E> {
 
-    private Node head;
+    public Node head;
     private int size;
 
     public void addFirst(E item){
@@ -187,5 +187,123 @@ public class LinkedL<E> {
         return size;
     }
 
+    public void hasCycle(Node head){
+        Node temp=head;
+        Node link=head.next;
+        while (temp!=null){
+            temp=temp.next;
+            if (temp.next == null){
+                temp.next=link;
+                break;
+            }
+        }
+        var fast=head;
+        var slow = head;
+        while (fast !=null && fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(slow==fast){
 
+            }
+        }
+
+    }
+
+    public static void main(String[] args) {
+        LinkedL<Integer> list = new LinkedL<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+
+
+        list.print();
+//        System.out.println(list.hasCycle(list.head));
+
+
+    }
+
+    public Node recSwapPair(Node head){
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        // Nodes to be swapped
+        Node first = head;
+        Node second = head.next;
+
+        // Store next pair's head
+        Node nextPairHead = second.next;
+
+        // Swap the pair
+        second.next = first;
+
+        // Recursively swap the remaining pairs and connect
+        first.next = recSwapPair(nextPairHead);
+
+        // Return new head after swap (second node becomes new head)
+        return second;
+
+    }
+
+    public void swapPair(){
+        if (head == null || head.next== null){
+            return;
+        }
+        Node prev=head;
+        Node current=head.next;
+        head = current;
+        while (current != null){
+            Node next=current.next;
+
+            current.next = prev;
+
+            if(next == null){
+                prev.next=null;
+
+                current=null;
+            }else{
+                prev.next=next.next;
+
+                current=next.next;
+            }
+
+            prev=next;
+
+
+
+
+        }
+    }
+
+    public Node recReversList(Node head){
+        if (head == null || head.next== null){
+            return head;
+        }
+
+        Node newNode=recReversList(head.next);
+        head.next.next=head;
+        head.next=null;
+        return  newNode;
+
+    }
+
+    public void reversList(){
+        if (head == null || head.next== null){
+            return;
+        }
+
+        Node pervious= null;
+        Node current=head;
+
+        while (current != null){
+            Node next=current.next;
+            current.next=pervious;
+
+            pervious=current;
+            current=next;
+        }
+       
+        head=pervious;
+    }
 }

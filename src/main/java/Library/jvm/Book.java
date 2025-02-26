@@ -10,13 +10,15 @@ public class Book {
         this.quantity=quantity;
     }
 
-    @Override
+
+
     public String toString() {
         return
                 "Name='" + b_name + '\'' +
                         ", Author='" + author + '\'' +
                         ", Quantity=" + quantity;
     }
+
 }
 
 

@@ -37,6 +37,7 @@ public class Library {
         Book b4 = new Book("Data Mining", "Pranjali Deshpande", 4);
         books.add(b4);
         Book b5 = new Book("Core Java", "Dhaval Dhimar", 4);
+        books.add(b5);
     }
 
     public void display(){
